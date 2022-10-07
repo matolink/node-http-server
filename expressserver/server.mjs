@@ -25,6 +25,11 @@ app.get('/todo', (req,res)=>{
     res.json(db)
 })
 
+app.get('/todo/:id', (req,res)=>{
+    let todo = db.find( t => (t.id === +req.params.id))
+    res.json(todo)
+})
+
 app.listen(8000, ()=>{
     console.log('server on http://localhost:8000')
 })
